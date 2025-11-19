@@ -16,7 +16,7 @@
 ## 🚀 Sobre o Projeto
 
 **SYNAPSE** é uma aplicação web moderna construída para a Global Solution de Front-End Web Development. O projeto simula uma rede profissional inteligente onde os usuários podem:
-- **Descobrir seu potencial** através de uma conversa socrática com uma IA (Gemini).
+- **Descobrir seu potencial** através de um quiz interativo que define seu arquétipo profissional.
 - **Construir um perfil dinâmico** com habilidades, experiências e interesses.
 - **Participar de um mercado de desafios**, aplicando-se a projetos ou publicando os seus próprios.
 - **Organizar suas tarefas** em um planner semanal/mensal interativo com funcionalidade de arrastar e soltar.
@@ -25,7 +25,8 @@
 
 ## ✨ Funcionalidades Principais
 
-*   **🧠 Descoberta de Potencial com IA:** Interface de chat integrada com a API do Google Gemini para ajudar os usuários a refletirem sobre suas habilidades e definirem seu arquétipo profissional.
+
+*   **🧠 Descoberta de Potencial com Quiz:** Um quiz interativo com perguntas diretas para ajudar os usuários a descobrirem seu arquétipo profissional com base em suas preferências e estilo de trabalho.
 *   **🌐 Rede Profissional e Gamificação:**
     *   Visualização de perfis de outros usuários.
     *   Sistema de pontos, badges e um leaderboard para incentivar o engajamento.
@@ -52,8 +53,6 @@
     *   Tailwind CSS para uma estilização utilitária e rápida.
 *   **Backend & Banco de Dados:**
     *   Firebase (Authentication, Firestore).
-*   **Inteligência Artificial:**
-    *   Google Generative AI (Gemini).
 *   **Roteamento:**
     *   React Router.
 *   **Animações e Interatividade:**
@@ -84,23 +83,15 @@ Para rodar este projeto localmente, siga os passos abaixo:
     npm install
     ```
 
-3.  **Configure as variáveis de ambiente:**
-    Crie um arquivo chamado `.env` na raiz do projeto e adicione sua chave da API do Google Gemini.
-
-    ```env
-    VITE_GEMINI_API_KEY=SUA_CHAVE_DA_API_AQUI
-    ```
-    > **Nota:** A chave da API do Gemini pode ser obtida no Google AI Studio.
-
-4.  **Configure o Firebase:**
+3.  **Configure o Firebase:**
     As credenciais do Firebase já estão no arquivo `src/lib/firebase.js`. Certifique-se de que as regras de segurança do seu Firestore e Authentication estão configuradas corretamente no console do Firebase para permitir leitura e escrita.
 
-5.  **Rode o servidor de desenvolvimento:**
+4.  **Rode o servidor de desenvolvimento:**
     ```bash
     npm run dev
     ```
 
-6.  **Acesse a aplicação:**
+5.  **Acesse a aplicação:**
     Abra seu navegador e acesse `http://localhost:5173`.
 
 ---

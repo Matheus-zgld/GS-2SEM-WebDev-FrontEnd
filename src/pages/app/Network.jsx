@@ -6,7 +6,30 @@ import SidebarLayout from '../../components/layout/SideBarLayout';
 import ProfileCard from '../../components/features/network/ProfileCard';
 import ProfileModal from '../../components/features/network/ProfileModal';
 import ProfileFilters from '../../components/features/network/ProfileFilters';
-import Leaderboard from '../../components/features/gamification/Leaderboard';
+import Leaderboard from '../../components/features/gamification/Leaderboard'; 
+import { BrainCircuit, Lightbulb, Users, Code, BarChartHorizontal } from 'lucide-react';
+
+// Definições de arquétipos para exibição na página Network
+const archetypesConfig = {
+    CONSTRUTOR: { name: 'O Construtor', icon: Code, color: 'text-sky-400' },
+    ARQUITETO: { name: 'O Arquiteto', icon: BrainCircuit, color: 'text-purple-400' },
+    INOVADOR: { name: 'O Inovador', icon: Lightbulb, color: 'text-yellow-400' },
+    COMUNICADOR: { name: 'O Comunicador', icon: Users, color: 'text-green-400' },
+    ANALISTA: { name: 'O Analista', icon: BarChartHorizontal, color: 'text-orange-400' },
+};
+
+const ArchetypeBadge = ({ archetypeKey }) => {
+    const archetype = archetypesConfig[archetypeKey];
+    if (!archetype) return null;
+
+    const Icon = archetype.icon;
+    return (
+        <div className={`flex items-center gap-1 text-xs ${archetype.color}`}>
+            <Icon className="w-3 h-3" />
+            <span className="font-semibold">{archetype.name}</span>
+        </div>
+    );
+};
 import SkillsChart from '../../components/features/gamification/SkillsChart';
 import CommunityAmbassadorBadge from '../../components/features/gamification/CommunityAmbassadorBadge';
 import PositiveImpactHistory from '../../components/features/gamification/PositiveImpactHistory';
@@ -69,6 +92,7 @@ function Network() {
                         areaInteresses: Array.isArray(docData.areaInteresses) ? docData.areaInteresses : [],
                         badges: Array.isArray(docData.badges) ? docData.badges : [],
                         ambassadorLevel: docData.ambassadorLevel || 1,
+                        archetypeKey: docData.archetypeKey || null, // Adicionado
                     };
                 });
                 setProfiles(data);
@@ -501,7 +525,9 @@ function Network() {
                                                     </div>
                                                     <div className="flex-1 overflow-hidden">
                                                         <p className="text-white font-semibold text-sm truncate">{profile.nome}</p>
-                                                        <p className="text-xs text-gray-400 truncate">{profile.cargo}</p>
+                                                        <div className="text-xs text-gray-400 truncate">
+                                                            {profile.archetypeKey ? <ArchetypeBadge archetypeKey={profile.archetypeKey} /> : <span>{profile.cargo}</span>}
+                                                        </div>
                                                     </div>
                                                     <button className="bg-indigo-600 hover:bg-indigo-700 text-white p-2 rounded text-xs font-semibold transition-colors opacity-0 group-hover:opacity-100">
                                                         <UserPlus className="w-3 h-3" />
@@ -519,11 +545,31 @@ function Network() {
                         </div>
                     </div>
 
-                    <ProfileModal
-                        profile={selectedProfile}
-                        isOpen={!!selectedProfile}
-                        onClose={() => setSelectedProfile(null)}
-                    />
+                    {selectedProfile && (
+                        <ProfileModal
+                            profile={selectedProfile}
+                            isOpen={!!selectedProfile}
+                            onClose={() => setSelectedProfile(null)}
+                        >
+                            {/* O conteúdo do ProfileCard foi movido para cá para incluir o ArchetypeBadge */}
+                            <div className="text-center">
+                                <img src={selectedProfile.foto || '/default-avatar.png'} alt={selectedProfile.nome || 'Perfil'} className="w-24 h-24 rounded-full mb-4 border-2 border-indigo-500 mx-auto" />
+                                <h4 className="font-bold text-2xl text-white">{selectedProfile.nome || 'Nome não disponível'}</h4>
+                                <div className="text-gray-400 mt-1 flex justify-center">
+                                    {selectedProfile.archetypeKey ? <ArchetypeBadge archetypeKey={selectedProfile.archetypeKey} /> : <span>{selectedProfile.cargo || 'Cargo não definido'}</span>}
+                                </div>
+                                <p className="text-sm text-gray-500 mt-4">{selectedProfile.habilidadesTecnicas?.join(', ') || 'Habilidades não listadas'}</p>
+                                <div className="flex justify-center mt-4 flex-wrap gap-2">
+                                    {selectedProfile.badges?.map(badge => (
+                                        <span key={badge} className="bg-yellow-400 text-black px-2 py-1 rounded text-xs font-semibold">
+                                            {badge}
+                                        </span>
+                                    )) || <span className="text-gray-500 text-xs">Sem badges</span>}
+                                </div>
+                            </div>
+                        </ProfileModal>
+                    )}
+
                 </div>
             </div>
         </SidebarLayout>
