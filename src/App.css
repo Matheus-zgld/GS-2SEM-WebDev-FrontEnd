@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Custom styles for gamification badges */
+.text-bronze { color: #CD7F32; }
+.text-silver { color: #C0C0C0; }
+.text-gold { color: #FFD700; }
+.text-platinum { color: #E5E4E2; }
+.text-diamond { color: #b9f2ff; }

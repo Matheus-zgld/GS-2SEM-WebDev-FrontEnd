@@ -1,0 +1,177 @@
+[
+    {
+        "id": 1,
+        "nome": "Fulano de Tal",
+        "foto": "./assets/foto1.jpg",
+        "cargo": "Conector de Ideias Improváveis",
+        "resumo": "Especialista em criatividade e inovação disruptiva.",
+        "localizacao": "São Paulo/SP",
+        "area": "Desenvolvimento",
+        "habilidadesTecnicas": [
+            "Python",
+            "SQL",
+            "React"
+        ],
+        "softSkills": [
+            "Comunicação",
+            "Resiliência"
+        ],
+        "experiencias": [
+            {
+                "empresa": "X",
+                "cargo": "Analista",
+                "inicio": "2022-01",
+                "fim": "2024-06",
+                "descricao": "Análise de dados para otimização de processos"
+            }
+        ],
+        "formacao": [
+            {
+                "curso": "MSc Data Science",
+                "instituicao": "FIAP",
+                "ano": 2021
+            }
+        ],
+        "projetos": [
+            {
+                "titulo": "Plataforma X",
+                "link": "https://exemplo.com",
+                "descricao": "Desenvolvimento web colaborativo"
+            }
+        ],
+        "certificacoes": [
+            "AWS Certified"
+        ],
+        "idiomas": [
+            {
+                "idioma": "Inglês",
+                "nivel": "Avançado"
+            }
+        ],
+        "areaInteresses": [
+            "IA ética",
+            "Educação"
+        ],
+        "pontosGamificacao": 150,
+        "badges": [
+            "Criativo",
+            "Resiliente"
+        ]
+    },
+    {
+        "id": 2,
+        "nome": "Ciclana Silva",
+        "foto": "./assets/foto2.jpg",
+        "cargo": "Avaliador de Risco Ético",
+        "resumo": "Focada em decisões éticas em IA e sustentabilidade.",
+        "localizacao": "Rio de Janeiro/RJ",
+        "area": "Saúde",
+        "habilidadesTecnicas": [
+            "Machine Learning",
+            "Ethics Frameworks"
+        ],
+        "softSkills": [
+            "Empatia",
+            "Pensamento Crítico"
+        ],
+        "experiencias": [
+            {
+                "empresa": "Hospital Y",
+                "cargo": "Consultora",
+                "inicio": "2020-05",
+                "fim": "2023-12",
+                "descricao": "Avaliação de riscos em tratamentos"
+            }
+        ],
+        "formacao": [
+            {
+                "curso": "PhD Bioética",
+                "instituicao": "USP",
+                "ano": 2019
+            }
+        ],
+        "projetos": [
+            {
+                "titulo": "Sistema de Risco Ético",
+                "link": "https://exemplo2.com",
+                "descricao": "Ferramenta para análise de dilemas"
+            }
+        ],
+        "certificacoes": [
+            "Certified Ethical Hacker"
+        ],
+        "idiomas": [
+            {
+                "idioma": "Espanhol",
+                "nivel": "Intermediário"
+            }
+        ],
+        "areaInteresses": [
+            "IA ética",
+            "Sustentabilidade"
+        ],
+        "pontosGamificacao": 200,
+        "badges": [
+            "Ético",
+            "Inovador"
+        ]
+    },
+    {
+        "id": 60,
+        "nome": "Último Perfil",
+        "foto": "./assets/foto60.jpg",
+        "cargo": "Otimizador de Sistemas Resiliente",
+        "resumo": "Especialista em sistemas antifrágeis.",
+        "localizacao": "Curitiba/PR",
+        "area": "TI",
+        "habilidadesTecnicas": [
+            "Kubernetes",
+            "Docker"
+        ],
+        "softSkills": [
+            "Resiliência",
+            "Colaboração"
+        ],
+        "experiencias": [
+            {
+                "empresa": "Tech Z",
+                "cargo": "Engenheiro",
+                "inicio": "2019-03",
+                "fim": "2024-01",
+                "descricao": "Otimização de infraestrutura"
+            }
+        ],
+        "formacao": [
+            {
+                "curso": "BSc Engenharia",
+                "instituicao": "UFPR",
+                "ano": 2018
+            }
+        ],
+        "projetos": [
+            {
+                "titulo": "Sistema Resiliente",
+                "link": "https://exemplo60.com",
+                "descricao": "Plataforma de recuperação automática"
+            }
+        ],
+        "certificacoes": [
+            "CKA Certified"
+        ],
+        "idiomas": [
+            {
+                "idioma": "Francês",
+                "nivel": "Básico"
+            }
+        ],
+        "areaInteresses": [
+            "Educação",
+            "Inovação"
+        ],
+        "pontosGamificacao": 300,
+        "badges": [
+            "Resiliente",
+            "Mestre"
+        ]
+    }
+]
