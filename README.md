@@ -8,6 +8,11 @@
 
 ---
 
+## 👥 Integrante
+
+* **Nome:** Matheus Henrique Ferreira Camargo da Silva
+* **RM:** 566232
+
 ## 🚀 Sobre o Projeto
 
 **SYNAPSE** é uma aplicação web moderna construída para a Global Solution de Front-End Web Development. O projeto simula uma rede profissional inteligente onde os usuários podem:
