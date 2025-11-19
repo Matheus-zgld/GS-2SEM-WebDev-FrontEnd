@@ -94,20 +94,14 @@ function SidebarLayout({ children }) {
                     <button onClick={() => setIsSidebarOpen(true)} className="text-gray-400 hover:text-white">
                         <Menu className="w-6 h-6" />
                     </button>
-                    <h1 className="text-lg font-bold text-white">SYNAPSE</h1>
-                    <div></div> {/* Spacer */}
+                    <GlobalSearch />
                 </header>
 
                 {/* Top bar (desktop) with search */}
-                <div className="hidden md:flex items-center justify-between p-4 bg-gray-950 border-b border-gray-800">
-                    <div className="flex items-center gap-4">
-                        <img src={logo} alt="Logo" className="w-8 h-8" />
-                        <h1 className="text-lg font-bold text-white">SYNAPSE</h1>
-                    </div>
+                <div className="hidden md:flex items-center justify-end p-4 bg-gray-950 border-b border-gray-800">
                     <div>
                         <GlobalSearch />
                     </div>
-                    <div />
                 </div>
                 {children}
             </main>

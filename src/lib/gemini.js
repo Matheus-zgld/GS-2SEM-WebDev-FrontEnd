@@ -40,7 +40,7 @@ export async function generateResponse(prompt) {
     }
 
     try {
-        const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash-preview-09-2025' });
+        const model = genAI.getGenerativeModel({ model: 'gemini-1.0-pro' });
         const result = await model.generateContent(chatPrompt);
         return (result?.response && typeof result.response.text === 'function') ? result.response.text() : JSON.stringify(result);
     } catch (error) {

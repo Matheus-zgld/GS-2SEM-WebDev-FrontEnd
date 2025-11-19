@@ -26,6 +26,7 @@ function Discovery() {
     const [archetype, setArchetype] = useState({ name: 'Iniciante', description: 'Comece a explorar suas habilidades.', badges: ['Curioso'] });
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
+    const chatRef = useRef(null);
 
     useEffect(() => {
         let mounted = true;
@@ -114,8 +115,6 @@ function Discovery() {
             </SidebarLayout>
         );
     }
-
-    const chatRef = useRef(null);
 
     const handleLoadConversation = (msgs) => {
         if (chatRef.current && chatRef.current.loadConversation) chatRef.current.loadConversation(msgs);
