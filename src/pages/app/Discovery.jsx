@@ -55,7 +55,7 @@ function Discovery() {
 
         fetchUserData();
         return () => { mounted = false; };
-    }, [user, authLoading]);
+    }, [user, authLoading]); // Correct dependency
 
     const generateArchetype = (data) => {
         let name = 'Iniciante';

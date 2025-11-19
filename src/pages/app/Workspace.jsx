@@ -7,10 +7,12 @@ function Workspace() {
 
     return (
         <SidebarLayout>
-            <div className="p-6 max-w-7xl mx-auto">
-                <h2 className="text-3xl font-bold mb-6 text-white">Ghost Team Workspace</h2>
-                <TaskBoard tasks={tasks} />
-                <ARWorkspace />
+            <div className="p-6 min-h-screen bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950">
+                <div className="max-w-7xl mx-auto">
+                    <h2 className="text-3xl font-bold mb-6 text-white">Ghost Team Workspace</h2>
+                    <TaskBoard tasks={tasks} />
+                    <ARWorkspace />
+                </div>
             </div>
         </SidebarLayout>
     );

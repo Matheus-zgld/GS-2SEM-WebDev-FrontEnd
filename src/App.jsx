@@ -12,6 +12,7 @@ import PublisherApplications from './pages/app/PublisherApplications';
 import SearchResults from './pages/app/SearchResults';
 import ChallengeDetail from './pages/app/ChallengeDetail';
 import Community from './pages/app/Community';
+import Skills from './pages/app/Skills';
 import Planner from './pages/app/Planner';
 import Login from './pages/auth/Login';
 import Signup from './pages/auth/Signup';
@@ -33,6 +34,7 @@ function App() {
           <Route path="/app/marketplace" element={<ProtectedRoute><Marketplace /></ProtectedRoute>} />
           <Route path="/app/community" element={<ProtectedRoute><Community /></ProtectedRoute>} />
           <Route path="/app/planner" element={<ProtectedRoute><Planner /></ProtectedRoute>} />
+          <Route path="/app/skills" element={<ProtectedRoute><Skills /></ProtectedRoute>} />
           <Route path="/app/applications" element={<ProtectedRoute><Applications /></ProtectedRoute>} />
           <Route path="/app/search" element={<ProtectedRoute><SearchResults /></ProtectedRoute>} />
           <Route path="/app/publisher" element={<ProtectedRoute><PublisherApplications /></ProtectedRoute>} />

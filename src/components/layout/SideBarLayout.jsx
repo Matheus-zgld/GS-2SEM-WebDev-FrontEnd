@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import {
     Users, Brain, Globe, Settings, Menu, X, LogOut,
-    Home, MessageSquare, Calendar // Ícone para voltar à Landing e novo ícone para Comunidade
+    Home, MessageSquare, Calendar, SlidersHorizontal // Ícone para voltar à Landing e novo ícone para Comunidade
 } from 'lucide-react';
 import logo from '../../assets/SYNAPSE_semfundo_branco.png';
 import GlobalSearch from '../ui/GlobalSearch';
@@ -20,6 +20,7 @@ function SidebarLayout({ children }) {
         { path: '/app/marketplace', label: 'Mercado', icon: Globe },
         { path: '/app/community', label: 'Comunidade', icon: MessageSquare },
         { path: '/app/planner', label: 'Planner', icon: Calendar },
+        { path: '/app/skills', label: 'Gerenciar Skills', icon: SlidersHorizontal },
         { path: '/app/workspace', label: 'Workspace', icon: Settings },
         { path: '/app/publisher', label: 'Minhas Publicações', icon: Globe },
     ];
@@ -34,7 +35,7 @@ function SidebarLayout({ children }) {
     return (
         <div className="bg-black text-gray-200 min-h-screen flex">
             {/* Sidebar */}
-            <aside className={`fixed inset-y-0 left-0 z-50 w-64 bg-gray-950 border-r border-gray-800 transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out md:translate-x-0 md:static md:inset-0`}>
+            <aside className={`fixed inset-y-0 left-0 z-50 w-64 bg-gray-950 border-r border-gray-800 transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out md:translate-x-0 flex flex-col h-screen`}>
                 <div className="flex items-center gap-2 p-4 border-b border-gray-800">
                     <img
                         src={logo}
@@ -46,7 +47,7 @@ function SidebarLayout({ children }) {
                         <X className="w-6 h-6" />
                     </button>
                 </div>
-                <nav className="p-4 space-y-2">
+                <nav className="flex-grow p-4 space-y-2 overflow-y-auto">
                     {/* Menu Items */}
                     {menuItems.map(({ path, label, icon: Icon }) => (
                         <Link
@@ -64,7 +65,7 @@ function SidebarLayout({ children }) {
                     ))}
                 </nav>
                 {/* Logout */}
-                <div className="absolute bottom-4 left-4 right-4">
+                <div className="p-4 border-t border-gray-800">
                     <button
                         onClick={handleLogout}
                         className="flex items-center gap-3 w-full px-3 py-2 rounded-lg text-gray-300 hover:bg-red-900 hover:text-white transition-colors"
@@ -72,7 +73,9 @@ function SidebarLayout({ children }) {
                         <LogOut className="w-5 h-5" />
                         <span>Logout</span>
                     </button>
-                    {user && <p className="text-sm text-gray-500 mt-2">Logado como: {user.email}</p>}
+                    {user && (
+                        <p className="text-xs text-gray-500 mt-2 truncate" title={user.email}>Logado como: {user.email}</p>
+                    )}
                 </div>
             </aside>
 
@@ -85,7 +88,7 @@ function SidebarLayout({ children }) {
             )}
 
             {/* Main Content */}
-            <main className="flex-1 md:ml-0">
+            <main className="flex-1 md:ml-64">
                 {/* Header Mobile */}
                 <header className="md:hidden flex items-center justify-between p-4 bg-gray-950 border-b border-gray-800">
                     <button onClick={() => setIsSidebarOpen(true)} className="text-gray-400 hover:text-white">
