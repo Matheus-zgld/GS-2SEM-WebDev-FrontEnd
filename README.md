@@ -17,7 +17,7 @@
 ## Link do Repositório Github
 * https://github.com/Matheus-zgld/GS-2SEM-WebDev-FrontEnd
 
-## 🚀 Sobre o Projeto
+## 🚀 Sobre o Projetos
 
 **SYNAPSE** é uma aplicação web moderna construída para a Global Solution de Front-End Web Development. O projeto simula uma rede profissional inteligente onde os usuários podem:
 - **Descobrir seu potencial** através de um quiz interativo que define seu arquétipo profissional.
