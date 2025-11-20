@@ -13,6 +13,10 @@
 * **Nome:** Matheus Henrique Ferreira Camargo da Silva
 * **RM:** 566232
 
+
+## Link do Repositório Github
+* https://github.com/Matheus-zgld/GS-2SEM-WebDev-FrontEnd
+
 ## 🚀 Sobre o Projeto
 
 **SYNAPSE** é uma aplicação web moderna construída para a Global Solution de Front-End Web Development. O projeto simula uma rede profissional inteligente onde os usuários podem:
