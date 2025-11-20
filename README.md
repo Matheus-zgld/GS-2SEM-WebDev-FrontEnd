@@ -2,7 +2,7 @@
   <img src="src/assets/SYNAPSE_semfundo_branco.png" alt="SYNAPSE Logo" width="150"/>
   <h1 align="center">SYNAPSE - Plataforma de Desenvolvimento Profissional</h1>
   <p align="center">
-    Um plataforma inovadora que utiliza IA, gamificação e uma rede social para ajudar profissionais a descobrir seu potencial, conectar-se a oportunidades e planejar seu crescimento.
+    Uma plataforma inovadora que utiliza IA, gamificação e uma rede social para ajudar profissionais a descobrir seu potencial, conectar-se a oportunidades e planejar seu crescimento.
   </p>
 </div>
 
