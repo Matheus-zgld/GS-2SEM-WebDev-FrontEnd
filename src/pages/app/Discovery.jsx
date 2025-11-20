@@ -209,7 +209,6 @@ function Discovery() {
             alert('Arquétipo Salvo com Sucesso');
         } catch (err) {
             console.error('Erro ao salvar arquétipo:', err);
-            // O alerta de erro foi removido conforme solicitado, pois estava aparecendo mesmo com sucesso.
         }
     };
 
@@ -221,7 +220,6 @@ function Discovery() {
                 email: user.email,
             }, { merge: true });
             alert('Perfil salvo com sucesso!');
-            // A chamada a generateArchetype foi removida para não sobrescrever o resultado do quiz.
         } catch (err) {
             console.error('Erro ao salvar dados do usuário:', err); 
             alert('Erro ao salvar dados. Veja console.');

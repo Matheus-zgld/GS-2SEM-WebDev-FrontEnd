@@ -27,7 +27,6 @@ function PublisherApplications() {
                 const chs = snap.docs.map(d => ({ id: d.id, ...d.data() }));
                 setChallenges(chs);
 
-                // Fetch all applications and group client-side (ok for prototype)
                 const appsSnap = await getDocs(collection(db, 'applications'));
                 const allApps = appsSnap.docs.map(a => ({ id: a.id, ...a.data() }));
                 const map = {};
@@ -47,7 +46,6 @@ function PublisherApplications() {
     const updateStatus = async (appId, status) => {
         try {
             await updateDoc(doc(db, 'applications', appId), { status, updatedAt: new Date() });
-            // refresh local state
             const map = { ...applicationsByChallenge };
             for (const key of Object.keys(map)) {
                 map[key] = map[key].map(a => a.id === appId ? { ...a, status } : a);

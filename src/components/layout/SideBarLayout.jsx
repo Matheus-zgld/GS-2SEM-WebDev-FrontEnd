@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import {
     Users, Brain, Globe, Settings, Menu, X, LogOut,
-    Home, MessageSquare, Calendar, SlidersHorizontal // Ícone para voltar à Landing e novo ícone para Comunidade
+    Home, MessageSquare, Calendar, SlidersHorizontal 
 } from 'lucide-react';
 import logo from '../../assets/SYNAPSE_semfundo_branco.png';
 import GlobalSearch from '../ui/GlobalSearch';
@@ -97,7 +97,7 @@ function SidebarLayout({ children }) {
                     <GlobalSearch />
                 </header>
 
-                {/* Top bar (desktop) with search */}
+                {/* Top bar (desktop) com search */}
                 <div className="hidden md:flex items-center justify-end p-4 bg-gray-950 border-b border-gray-800">
                     <div>
                         <GlobalSearch />

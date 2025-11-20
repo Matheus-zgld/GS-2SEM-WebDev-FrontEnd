@@ -46,7 +46,6 @@ function ChallengeCard({ challenge, onApply }) {
                 <p className="text-gray-400 text-sm mb-4 line-clamp-2">{description}</p>
             </div>
 
-            {/* ODS Tags & Inclusion Guaranteed */}
             <div className="flex flex-wrap gap-2 mb-4">
                 {inclusionGuaranteed && (
                     <span className="text-xs px-2 py-1 rounded-full font-semibold bg-teal-900/40 text-teal-300 flex items-center gap-1">
@@ -65,7 +64,6 @@ function ChallengeCard({ challenge, onApply }) {
                 )}
             </div>
 
-            {/* Stats */}
             <div className="grid grid-cols-4 gap-2 mb-4 pb-4 border-b border-gray-700">
                 <div className="text-center">
                     <Trophy className="w-4 h-4 text-yellow-400 mx-auto mb-1" />
@@ -85,7 +83,6 @@ function ChallengeCard({ challenge, onApply }) {
                 </div>
             </div>
 
-            {/* Deadline & Salary */}
             <div className="space-y-2 text-xs text-gray-400 mb-4">
                 {deadline && (
                     <div className="flex items-center gap-2">
@@ -101,7 +98,6 @@ function ChallengeCard({ challenge, onApply }) {
                 )}
             </div>
 
-            {/* Apply Buttons */}
             <div className="mt-auto space-y-2">
                 <button
                     onClick={() => onApply(challenge)}

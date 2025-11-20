@@ -44,15 +44,14 @@ function Network() {
     const [publications, setPublications] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [likedPublications, setLikedPublications] = useState(new Set()); // This will be populated from authProfile
-    const [savedPublications, setSavedPublications] = useState(new Set()); // This will be populated from authProfile
+    const [likedPublications, setLikedPublications] = useState(new Set()); 
+    const [savedPublications, setSavedPublications] = useState(new Set()); 
     const [commentingOn, setCommentingOn] = useState(null);
     const [newComments, setNewComments] = useState({});
     const [hoveredPub, setHoveredPub] = useState(null);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [trustCircle, setTrustCircle] = useState([]);
 
-    // Mock data for new components
     const demandedSkills = [
         { name: 'React', demand: 80 },
         { name: 'Node.js', demand: 70 },
@@ -92,7 +91,7 @@ function Network() {
                         areaInteresses: Array.isArray(docData.areaInteresses) ? docData.areaInteresses : [],
                         badges: Array.isArray(docData.badges) ? docData.badges : [],
                         ambassadorLevel: docData.ambassadorLevel || 1,
-                        archetypeKey: docData.archetypeKey || null, // Adicionado
+                        archetypeKey: docData.archetypeKey || null, 
                     };
                 });
                 setProfiles(data);
@@ -126,7 +125,6 @@ function Network() {
                     if (userDoc.exists()) {
                         const userData = userDoc.data();
                         setUserProfile({ id: user.uid, ...userData, ambassadorLevel: userData.ambassadorLevel || 1 });
-                        // Mock trust circle
                         setTrustCircle(data.slice(0, 3));
                     } else {
                         setUserProfile({ id: user.uid, email: user.email, nome: 'Perfil não configurado', ambassadorLevel: 1 });
@@ -140,7 +138,7 @@ function Network() {
             }
         };
         fetchData();
-    }, [user]); // Correct dependency
+    }, [user]);
 
     const handleSearch = (query) => {
         const lowerQuery = query.toLowerCase();
@@ -175,12 +173,10 @@ function Network() {
         const userRef = doc(db, 'users', user.uid);
         const isLiked = likedPublications.has(pubId);
 
-        // Optimistic update
         const newLiked = new Set(likedPublications);
         isLiked ? newLiked.delete(pubId) : newLiked.add(pubId);
         setLikedPublications(newLiked);
 
-        // Optimistic update for publication likes count
         setPublications(pubs => pubs.map(p => {
             if (p.id === pubId) {
                 return { ...p, likes: p.likes + (isLiked ? -1 : 1) };
@@ -193,10 +189,9 @@ function Network() {
             batch.update(pubRef, { likes: increment(isLiked ? -1 : 1) });
             batch.update(userRef, { likedPublications: isLiked ? arrayRemove(pubId) : arrayUnion(pubId) });
             await batch.commit();
-            await reloadProfile(); // Refresh profile context
+            await reloadProfile(); 
         } catch (error) {
             console.error("Error liking publication:", error);
-            // Revert optimistic update on error
             setLikedPublications(likedPublications);
             setPublications(pubs => pubs.map(p => {
                 if (p.id === pubId) {
@@ -216,7 +211,6 @@ function Network() {
         const userRef = doc(db, 'users', user.uid);
         const isSaved = savedPublications.has(pubId);
 
-        // Optimistic update
         const newSaved = new Set(savedPublications);
         isSaved ? newSaved.delete(pubId) : newSaved.add(pubId);
         setSavedPublications(newSaved);
@@ -225,10 +219,10 @@ function Network() {
             await updateDoc(userRef, {
                 savedPublications: isSaved ? arrayRemove(pubId) : arrayUnion(pubId)
             });
-            await reloadProfile(); // Refresh profile context
+            await reloadProfile();
         } catch (error) {
             console.error("Error saving publication:", error);
-            setSavedPublications(savedPublications); // Revert
+            setSavedPublications(savedPublications);
         } finally {
             setIsSubmitting(false);
         }
@@ -253,7 +247,6 @@ function Network() {
                 comments: arrayUnion(newComment),
                 commentCount: increment(1)
             });
-            // Optimistically update local state
             setPublications(pubs => pubs.map(p => p.id === pubId ? { ...p, comments: [...(p.comments || []), newComment], commentCount: (p.commentCount || 0) + 1 } : p));
             setNewComments(prev => ({ ...prev, [pubId]: '' }));
         } catch (error) {

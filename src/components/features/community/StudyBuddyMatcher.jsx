@@ -6,7 +6,6 @@ const StudyBuddyMatcher = ({ onMatch }) => {
 
     const handleMatch = () => {
         setIsMatching(true);
-        // Simulate a matching process
         setTimeout(() => {
             setIsMatching(false);
             onMatch({ name: 'Carlos', avatar: 'https://i.pravatar.cc/40?u=carlos' });

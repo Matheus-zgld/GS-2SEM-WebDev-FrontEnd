@@ -21,13 +21,11 @@ export default function ChallengeDetail() {
         const fetchChallenge = async () => {
             if (!id) return;
             try {
-                // Fetch challenge
                 const challengeDoc = await getDoc(doc(db, 'challenges', id));
                 if (challengeDoc.exists()) {
                     const challengeData = { id: challengeDoc.id, ...challengeDoc.data() };
                     setChallenge(challengeData);
 
-                    // Fetch owner info
                     if (challengeData.ownerId) {
                         const ownerDoc = await getDoc(doc(db, 'users', challengeData.ownerId));
                         if (ownerDoc.exists()) {
@@ -35,17 +33,14 @@ export default function ChallengeDetail() {
                         }
                     }
 
-                    // Fetch applications
                     const appsQuery = query(collection(db, 'applications'), where('challengeId', '==', id));
                     const appsSnapshot = await getDocs(appsQuery);
                     const appsList = appsSnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
                     setApplications(appsList);
 
-                    // Check if current user has applied
                     const userApplication = appsList.find((app) => app.userId === user?.uid);
                     setHasApplied(!!userApplication);
 
-                    // Fetch comments (stored in challenge doc or separate collection)
                     if (challengeData.comments && Array.isArray(challengeData.comments)) {
                         setComments(challengeData.comments);
                     }
@@ -65,7 +60,6 @@ export default function ChallengeDetail() {
     const handleApply = async () => {
         if (!user) return alert('Faça login para se candidatar');
         try {
-            // Add application
             const newApp = {
                 userId: user.uid,
                 challengeId: id,
@@ -74,8 +68,6 @@ export default function ChallengeDetail() {
                 appliedAt: new Date().toISOString(),
                 status: 'pending',
             };
-            // This would normally go to a function to add to applications collection
-            // For now, update local state
             setApplications([...applications, newApp]);
             setHasApplied(true);
             alert('Candidatura enviada com sucesso!');
@@ -97,7 +89,6 @@ export default function ChallengeDetail() {
             };
             setComments([comment, ...comments]);
             setNewComment('');
-            // Update in Firebase (pseudo-code; actual implementation depends on schema)
         } catch (err) {
             console.error('Error adding comment:', err);
         }

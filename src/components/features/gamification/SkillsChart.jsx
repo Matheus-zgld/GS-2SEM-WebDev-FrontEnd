@@ -1,4 +1,3 @@
-// If you are having issues with recharts, try restarting the dev server
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 const SkillsChart = ({ userSkills, demandedSkills }) => {

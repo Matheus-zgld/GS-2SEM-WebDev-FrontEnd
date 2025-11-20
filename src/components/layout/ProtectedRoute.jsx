@@ -6,7 +6,7 @@ function ProtectedRoute({ children }) {
     const location = useLocation();
 
     if (loading) {
-        return <div className="flex items-center justify-center min-h-screen">Carregando...</div>; // Adicionei loading state para melhor UX.
+        return <div className="flex items-center justify-center min-h-screen">Carregando...</div>; 
     }
 
     if (!user) {

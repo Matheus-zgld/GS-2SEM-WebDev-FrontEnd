@@ -34,19 +34,16 @@ function MyActivities() {
             setLoading(true);
 
             try {
-                // Fetch My Posts
                 const myPostsQuery = query(collection(db, 'publications'), where('userId', '==', user.uid));
                 const myPostsSnap = await getDocs(myPostsQuery);
                 setMyPosts(myPostsSnap.docs.map(d => ({ id: d.id, ...d.data() })));
 
-                // Fetch Liked Posts
                 if (profile.likedPublications && profile.likedPublications.length > 0) {
                     const likedQuery = query(collection(db, 'publications'), where(documentId(), 'in', profile.likedPublications));
                     const likedSnap = await getDocs(likedQuery);
                     setLikedPosts(likedSnap.docs.map(d => ({ id: d.id, ...d.data() })));
                 }
 
-                // Fetch Saved Posts
                 if (profile.savedPublications && profile.savedPublications.length > 0) {
                     const savedQuery = query(collection(db, 'publications'), where(documentId(), 'in', profile.savedPublications));
                     const savedSnap = await getDocs(savedQuery);

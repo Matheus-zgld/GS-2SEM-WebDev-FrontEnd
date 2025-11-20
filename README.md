@@ -80,7 +80,7 @@ Para rodar este projeto localmente, siga os passos abaixo:
 
 2.  **Instale as dependências:**
     ```bash
-    npm install
+    npm install --force
     ```
 
 3.  **Configure o Firebase:**

@@ -26,10 +26,6 @@ const Leaderboard = ({ skill, city }) => {
                         limit(10)
                     );
                 }
-                
-                // This is a simplified version. For a real implementation, you would need a more complex query
-                // or a different data structure to query by skill.
-                // For now, we will just order by the general gamification points.
 
                 const querySnapshot = await getDocs(q);
                 const leadersData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));

@@ -239,14 +239,14 @@ const Hero = () => (
                 {/* Botões CTA */}
                 <div className="mt-12 flex flex-col sm:flex-row justify-center gap-4">
                     <a
-                        href="#cta"
+                        href="/auth/login"
                         className="inline-flex items-center justify-center gap-2 px-8 py-3.5 text-base font-semibold text-gray-900 bg-white rounded-lg shadow-lg shadow-white/5 hover:bg-gray-200 hover:shadow-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white transition-all duration-300 transform hover:scale-105"
                     >
                         Descubra seu Potencial
                         <ArrowRight className="w-5 h-5" />
                     </a>
                     <a
-                        href="#cta"
+                        href="/auth/login"
                         className="inline-flex items-center justify-center gap-2 px-8 py-3.5 text-base font-semibold text-gray-300 bg-transparent border border-gray-700 rounded-lg hover:bg-gray-900 hover:border-gray-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-500 transition-all duration-300 transform hover:scale-105"
                     >
                         Publique um Desafio
@@ -536,7 +536,7 @@ const CTA = () => (
                             "A automação é um fato. Sua irrelevância é uma escolha. Descubra seu Arquétipo de Potencial."
                         </p>
                         <a
-                            href="#"
+                            href="/auth/login"
                             className="inline-flex items-center justify-center gap-2 mt-8 px-6 py-3 text-base font-semibold text-gray-900 bg-white rounded-lg shadow-lg shadow-white/5 hover:bg-gray-200 hover:shadow-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white transition-all duration-300 transform hover:scale-105"
                         >
                             Cadastre-se para a Descoberta
@@ -551,7 +551,7 @@ const CTA = () => (
                             "Pare de procurar currículos. Comece a encontrar soluções."
                         </p>
                         <a
-                            href="#"
+                            href="/auth/login"
                             className="inline-flex items-center justify-center gap-2 mt-8 px-6 py-3 text-base font-semibold text-gray-300 bg-transparent border border-gray-700 rounded-lg shadow-lg hover:bg-gray-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white transition-all duration-300 transform hover:scale-105"
                         >
                             Publique seu Primeiro Desafio
@@ -604,8 +604,6 @@ const Footer = () => (
 
 // --- Componente Principal da Página ---
 
-// Este era o seu 'App()', renomeei para 'Landing()' para ser a exportação padrão
-// deste arquivo.
 export default function Landing() {
     return (
         <div

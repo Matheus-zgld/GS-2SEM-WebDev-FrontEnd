@@ -34,7 +34,6 @@ function Planner() {
         const fetchAllTasks = async () => {
             setLoading(true);
             try {
-                // Fetch challenges
                 const challengesSnapshot = await getDocs(collection(db, 'challenges'));
                 const challenges = challengesSnapshot.docs.map(doc => ({
                     id: `challenge-${doc.id}`,
@@ -42,7 +41,6 @@ function Planner() {
                     type: 'Desafio'
                 }));
     
-                // Combine with micro-projects
                 const allTasks = [...challenges, ...microProjectsData];
     
                 const tasksObject = allTasks.reduce((acc, task) => {

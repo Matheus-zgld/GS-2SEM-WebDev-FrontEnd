@@ -31,14 +31,11 @@ const getFriendlyErrorMessage = (code) => {
 function Signup() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState(''); // Novo estado
-    const [error, setError] = useState(''); // Para erros
-    const [loading, setLoading] = useState(false); // Para estado de carregamento
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [error, setError] = useState(''); 
+    const [loading, setLoading] = useState(false); 
     const navigate = useNavigate();
 
-    /**
-     * Manipulador para o envio do formulário de cadastro.
-     */
     const handleSignup = async (e) => {
         e.preventDefault();
         setError(''); // Limpa erros anteriores
@@ -68,7 +65,7 @@ function Signup() {
             });
             
             // 4. Redireciona para a plataforma
-            navigate('/app/network'); // Ou para onde o usuário deve ir após o cadastro
+            navigate('/app/network'); 
 
         } catch (firebaseError) {
             // 5. Trata erros do Firebase

@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-/* Ou as diretivas tradicionais se preferir */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,7 +8,6 @@ body {
     font-family: 'Inter', sans-serif;
 }
 
-/* src/index.css ou src/animations.css */
 
 @keyframes fadeInUp {
     from {
@@ -51,21 +49,15 @@ body {
     animation-delay: 0.6s;
 }
 
-/* Adicione mais delays se precisar */
 
-/* Estilos para o background com gradiente radial */
 .radial-gradient-bg {
     background: radial-gradient(at top, rgba(17, 24, 39, 0.4) 0%, transparent 70%),
         radial-gradient(at bottom left, rgba(20, 30, 60, 0.4) 0%, transparent 70%),
         #000000;
-    /* Fundo preto principal */
     background-attachment: fixed;
-    /* Opcional: para o gradiente fixar na tela */
+    
 }
 
-/* Opcional: Efeito de "partículas" ou "grid" sutil, inspirado no Linear */
-/* Isso é mais avançado e pode exigir um SVG de fundo ou um componente React para partículas */
-/* Por enquanto, vamos manter simples com o gradiente */
 
 html {
     scroll-behavior: smooth;

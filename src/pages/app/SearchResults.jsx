@@ -33,32 +33,27 @@ function SearchResults() {
                 let usersData = usersSnap.docs.map(d => ({ id: d.id, ...d.data() }));
                 let challengesData = challengesSnap.docs.map(d => ({ id: d.id, ...d.data() }));
 
-                // build ODS options & counts
                 const allOds = {};
                 challengesData.forEach(c => (c.ods || []).forEach(o => { allOds[o] = (allOds[o] || 0) + 1; }));
                 setOdsOptions(Object.keys(allOds));
                 setOdsCounts(allOds);
 
-                // basic text filter
                 if (qLower) {
                     usersData = usersData.filter(u => (u.nome || '').toLowerCase().includes(qLower) || (u.areaInteresses || []).join(' ').toLowerCase().includes(qLower));
                     challengesData = challengesData.filter(c => (c.title || '').toLowerCase().includes(qLower) || (c.description || '').toLowerCase().includes(qLower));
                 }
 
-                // skill filter for users
                 if (skillFilter.trim()) {
                     const sf = skillFilter.toLowerCase();
                     usersData = usersData.filter(u => (u.habilidadesTecnicas || []).join(' ').toLowerCase().includes(sf));
                 }
 
-                // ods filter for challenges
                 if (selectedOds.length > 0) {
                     challengesData = challengesData.filter(c => (c.ods || []).some(o => selectedOds.includes(o)));
                 }
 
                 setUsers(usersData);
                 setChallenges(challengesData);
-                // reset paging when search/filter changes
                 setUsersPage(1);
                 setChallengesPage(1);
             } catch (err) {

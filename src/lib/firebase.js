@@ -4,7 +4,7 @@ import { getFirestore } from 'firebase/firestore';
 import { getMessaging } from 'firebase/messaging';
 import { getAnalytics } from 'firebase/analytics'; // Adicionado conforme seu código
 
-// Suas configurações reais do Firebase
+// configurações reais do Firebase
 const firebaseConfig = {
     apiKey: "AIzaSyDcDRDG_BJpLNUJN6bjFctJdk_qbAMI8NQ",
     authDomain: "synapse-app-ddf75.firebaseapp.com",
@@ -20,4 +20,4 @@ const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
 export const messaging = getMessaging(app);
-export const analytics = getAnalytics(app); // Exportado para uso futuro, se necessário
+export const analytics = getAnalytics(app);
